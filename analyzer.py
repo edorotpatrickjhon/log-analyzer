@@ -53,7 +53,7 @@ def read_log_file(filepath):
 
     return logs
 
-
-details = read_log_file("tests/test_log.txt")
-parsed_logs = [parse_log_line(line) for line in details]
-print(count_failed_logins(parsed_logs))
+if __name__ == "__main__":
+    details = read_log_file("tests/test_log.txt")
+    parsed_logs = [parse_log_line(line) for line in details]
+    print(count_failed_logins(parsed_logs))
