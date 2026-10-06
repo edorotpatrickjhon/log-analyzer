@@ -32,11 +32,6 @@ def parse_log_line(log_line):
     return parse_dictionary
 
 def count_failed_logins(input_records):
-    input_records = [
-            {'ip' : '192.168.1.10', "status" : 401},
-            {'ip' : '192.168.1.10', "status" : 401},
-            {'ip' : '10.0.0.5', "status" : 200}
-        ]
 
     ip_and_error_dict = {}
 
@@ -58,3 +53,7 @@ def read_log_file(filepath):
 
     return logs
 
+
+details = read_log_file("tests/test_log.txt")
+parsed_logs = [parse_log_line(line) for line in details]
+print(count_failed_logins(parsed_logs))
